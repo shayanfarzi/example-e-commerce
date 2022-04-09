@@ -1,9 +1,17 @@
-import HomePage from "./pages/homepage/homepage.component";
+import { Routes, Route } from "react-router-dom";
+import HomeRoute from "./routes/home/home.routes";
+import Navigation from "./routes/navigation/navigation.routes";
+import ShopRoute from "./routes/shop/shop.routes";
 
 function App() {
   return (
     <div className="App">
-      <HomePage />
+      <Routes>
+        <Route path="/" element={<Navigation />}>
+          <Route index element={<HomeRoute />} />
+          <Route path="shop" element={<ShopRoute />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
